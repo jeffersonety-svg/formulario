@@ -11,20 +11,92 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        biosensor: {
-                            blue: '#405663',
-                            orange: '#e88b5d',
-                            grey: '#7a7a7a'
-                        }
-                    }
-                }
-            }
+    function toggleAbastecimento(show) {
+        const details = document.getElementById('sectionAbastecimentoDetails');
+        const btnSim = document.getElementById('btnAbastSim');
+        const btnNao = document.getElementById('btnAbastNao');
+        const hiddenInput = document.getElementById('inputAbastecimento');
+        
+        if (show) {
+            details.classList.remove('hidden-section');
+            btnSim.classList.add('bg-white', 'shadow-sm', 'rounded-2');
+            btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
+            hiddenInput.value = 'sim';
+        } else {
+            details.classList.add('hidden-section');
+            btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
+            btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
+            hiddenInput.value = 'nao';
         }
-    </script>
+    }
+
+    function handleDestinoChange(value) {
+        const containerSaida = document.getElementById('container_km_saida');
+        const containerRetorno = document.getElementById('container_km_retorno');
+        const kmSaida = document.getElementById('km_saida');
+        const kmRetorno = document.getElementById('km_retorno');
+
+        if (!containerSaida || !containerRetorno) return;
+
+        containerSaida.classList.add('hidden-section');
+        containerRetorno.classList.add('hidden-section');
+        kmSaida.required = false;
+
+        if (value === 'saida') {
+            containerSaida.classList.remove('hidden-section');
+            kmSaida.required = true;
+        } else if (value === 'retorno') {
+            containerRetorno.classList.remove('hidden-section');
+        }
+    }
+
+    function toggleStatus(type, value) {
+        const buttons = document.querySelectorAll(`[data-group="${type}"]`);
+        const hiddenInput = document.getElementById(`input_${type}`);
+        if(hiddenInput) hiddenInput.value = value;
+
+        buttons.forEach(btn => {
+            const isSelected = btn.getAttribute('data-value') === value;
+            if (isSelected) {
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-primary', 'shadow-sm');
+            } else {
+                btn.classList.remove('btn-primary', 'shadow-sm');
+                btn.classList.add('btn-outline-secondary');
+            }
+        });
+    }
+
+    function resetForm() {
+        const form = document.getElementById('checklistForm');
+        form.reset();
+
+        // Reset dynamic sections visibility
+        handleDestinoChange('');
+        toggleAbastecimento(false);
+
+        // Reset custom toggle button states to defaults
+        toggleStatus('limpo', 'sim');
+        toggleStatus('avarias', 'nao');
+
+        // Explicitly clear KM inputs
+        document.getElementById('km_saida').value = '';
+        document.getElementById('km_retorno').value = '';
+    }
+
+    document.getElementById('checklistForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const successModalElement = document.getElementById('successModal');
+        const successModal = new bootstrap.Modal(successModalElement);
+        
+        // Trigger reset when modal is fully hidden
+        successModalElement.addEventListener('hidden.bs.modal', function () {
+            resetForm();
+        }, { once: true });
+
+        successModal.show();
+    });
+</script>
 <style>
         .velocity-gradient {
             background: linear-gradient(135deg, #e88b5d 0%, #d4754a 100%);
@@ -96,7 +168,7 @@
 <h2 class="text-white fw-bolder h4 mb-0">BioSensor - Frota</h2>
 </div>
 </div>
-<form action="YOUR_N8N_WEBHOOK_URL" class="pb-5" id="checklistForm" method="POST">
+<form action="https://webhook.jfflow.com/webhook/html" class="pb-5" id="checklistForm" method="POST">
 <!-- SEÇÃO 1 – IDENTIFICAÇÃO -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
@@ -353,7 +425,7 @@
 <input id="inputAbastecimento" name="abastecimento_realizado" type="hidden" value="nao"/>
 </div>
 <!-- SEÇÃO 6.1 - CONDITIONAL -->
-<div class="hidden-section pt-3 border-start border-2 border-primary ps-3 ms-2" id="sectionAbastecimentoDetails">
+<div class="hidden-section pt-3 ps-3 ms-2" id="sectionAbastecimentoDetails">
 <div class="row g-2">
 <div class="col-6">
 <div class="bg-white p-2 rounded shadow-sm">
@@ -460,6 +532,8 @@
         const kmSaida = document.getElementById('km_saida');
         const kmRetorno = document.getElementById('km_retorno');
 
+        if (!containerSaida || !containerRetorno) return;
+
         containerSaida.classList.add('hidden-section');
         containerRetorno.classList.add('hidden-section');
         kmSaida.required = false;
@@ -467,10 +541,8 @@
         if (value === 'saida') {
             containerSaida.classList.remove('hidden-section');
             kmSaida.required = true;
-            kmSaida.focus();
         } else if (value === 'retorno') {
             containerRetorno.classList.remove('hidden-section');
-            kmRetorno.focus();
         }
     }
 
@@ -491,11 +563,34 @@
         });
     }
 
+    function resetForm() {
+        const form = document.getElementById('checklistForm');
+        form.reset();
+
+        // Reset dynamic sections visibility
+        handleDestinoChange('');
+        toggleAbastecimento(false);
+
+        // Reset custom toggle button states to defaults
+        toggleStatus('limpo', 'sim');
+        toggleStatus('avarias', 'nao');
+
+        // Explicitly clear KM inputs
+        document.getElementById('km_saida').value = '';
+        document.getElementById('km_retorno').value = '';
+    }
+
     document.getElementById('checklistForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        const successModalElement = document.getElementById('successModal');
+        const successModal = new bootstrap.Modal(successModalElement);
+        
+        // Trigger reset when modal is fully hidden
+        successModalElement.addEventListener('hidden.bs.modal', function () {
+            resetForm();
+        }, { once: true });
+
         successModal.show();
-        console.log('Form submission intercepted for demo. Success message shown.');
     });
 </script>
 <!-- Success Modal -->
