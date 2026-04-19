@@ -7,7 +7,81 @@
 <!-- Bootstrap CSS for structure -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <!-- Tailwind for specific styling as requested to preserve visual style -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
+    function toggleAbastecimento(show) {
+        const details = document.getElementById('sectionAbastecimentoDetails');
+        const btnSim = document.getElementById('btnAbastSim');
+        const btnNao = document.getElementById('btnAbastNao');
+        const hiddenInput = document.getElementById('inputAbastecimento');
+        
+        if (show) {
+            details.classList.remove('hidden-section');
+            btnSim.classList.add('bg-white', 'shadow-sm', 'rounded-2');
+            btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
+            hiddenInput.value = 'sim';
+        } else {
+            details.classList.add('hidden-section');
+            btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
+            btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
+            hiddenInput.value = 'nao';
+        }
+    }
+
+    function handleDestinoChange(value) {
+        const containerSaida = document.getElementById('container_km_saida');
+        const containerRetorno = document.getElementById('container_km_retorno');
+        const kmSaida = document.getElementById('km_saida');
+        const kmRetorno = document.getElementById('km_retorno');
+
+        if (!containerSaida || !containerRetorno) return;
+
+        containerSaida.classList.add('hidden-section');
+        containerRetorno.classList.add('hidden-section');
+        kmSaida.required = false;
+
+        if (value === 'saida') {
+            containerSaida.classList.remove('hidden-section');
+            kmSaida.required = true;
+        } else if (value === 'retorno') {
+            containerRetorno.classList.remove('hidden-section');
+        }
+    }
+
+    function toggleStatus(type, value) {
+        const buttons = document.querySelectorAll(`[data-group="${type}"]`);
+        const hiddenInput = document.getElementById(`input_${type}`);
+        if(hiddenInput) hiddenInput.value = value;
+
+        buttons.forEach(btn => {
+            const isSelected = btn.getAttribute('data-value') === value;
+            if (isSelected) {
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-primary', 'shadow-sm');
+            } else {
+                btn.classList.remove('btn-primary', 'shadow-sm');
+                btn.classList.add('btn-outline-secondary');
+            }
+        });
+    }
+
+    function resetForm() {
+        const form = document.getElementById('checklistForm');
+        form.reset();
+        handleDestinoChange('');
+        toggleAbastecimento(false);
+        toggleStatus('limpo', 'sim');
+        toggleStatus('avarias', 'nao');
+        document.getElementById('km_saida').value = '';
+        document.getElementById('km_retorno').value = '';
+    }
+
+    document.getElementById('checklistForm').addEventListener('submit', function(e) {
+        // The form will submit naturally to the webhook defined in the action attribute.
+        // If you want to show the modal first and then submit via AJAX, you'd use e.preventDefault().
+        // To satisfy "ensure button correctly triggers submission", we allow the default behavior.
+        console.log('Form submitting to webhook...');
+    });
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -505,7 +579,81 @@
 </form>
 </main>
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    function toggleAbastecimento(show) {
+        const details = document.getElementById('sectionAbastecimentoDetails');
+        const btnSim = document.getElementById('btnAbastSim');
+        const btnNao = document.getElementById('btnAbastNao');
+        const hiddenInput = document.getElementById('inputAbastecimento');
+        
+        if (show) {
+            details.classList.remove('hidden-section');
+            btnSim.classList.add('bg-white', 'shadow-sm', 'rounded-2');
+            btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
+            hiddenInput.value = 'sim';
+        } else {
+            details.classList.add('hidden-section');
+            btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
+            btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
+            hiddenInput.value = 'nao';
+        }
+    }
+
+    function handleDestinoChange(value) {
+        const containerSaida = document.getElementById('container_km_saida');
+        const containerRetorno = document.getElementById('container_km_retorno');
+        const kmSaida = document.getElementById('km_saida');
+        const kmRetorno = document.getElementById('km_retorno');
+
+        if (!containerSaida || !containerRetorno) return;
+
+        containerSaida.classList.add('hidden-section');
+        containerRetorno.classList.add('hidden-section');
+        kmSaida.required = false;
+
+        if (value === 'saida') {
+            containerSaida.classList.remove('hidden-section');
+            kmSaida.required = true;
+        } else if (value === 'retorno') {
+            containerRetorno.classList.remove('hidden-section');
+        }
+    }
+
+    function toggleStatus(type, value) {
+        const buttons = document.querySelectorAll(`[data-group="${type}"]`);
+        const hiddenInput = document.getElementById(`input_${type}`);
+        if(hiddenInput) hiddenInput.value = value;
+
+        buttons.forEach(btn => {
+            const isSelected = btn.getAttribute('data-value') === value;
+            if (isSelected) {
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-primary', 'shadow-sm');
+            } else {
+                btn.classList.remove('btn-primary', 'shadow-sm');
+                btn.classList.add('btn-outline-secondary');
+            }
+        });
+    }
+
+    function resetForm() {
+        const form = document.getElementById('checklistForm');
+        form.reset();
+        handleDestinoChange('');
+        toggleAbastecimento(false);
+        toggleStatus('limpo', 'sim');
+        toggleStatus('avarias', 'nao');
+        document.getElementById('km_saida').value = '';
+        document.getElementById('km_retorno').value = '';
+    }
+
+    document.getElementById('checklistForm').addEventListener('submit', function(e) {
+        // The form will submit naturally to the webhook defined in the action attribute.
+        // If you want to show the modal first and then submit via AJAX, you'd use e.preventDefault().
+        // To satisfy "ensure button correctly triggers submission", we allow the default behavior.
+        console.log('Form submitting to webhook...');
+    });
+</script>
 <script>
     function toggleAbastecimento(show) {
         const details = document.getElementById('sectionAbastecimentoDetails');
@@ -566,31 +714,19 @@
     function resetForm() {
         const form = document.getElementById('checklistForm');
         form.reset();
-
-        // Reset dynamic sections visibility
         handleDestinoChange('');
         toggleAbastecimento(false);
-
-        // Reset custom toggle button states to defaults
         toggleStatus('limpo', 'sim');
         toggleStatus('avarias', 'nao');
-
-        // Explicitly clear KM inputs
         document.getElementById('km_saida').value = '';
         document.getElementById('km_retorno').value = '';
     }
 
     document.getElementById('checklistForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const successModalElement = document.getElementById('successModal');
-        const successModal = new bootstrap.Modal(successModalElement);
-        
-        // Trigger reset when modal is fully hidden
-        successModalElement.addEventListener('hidden.bs.modal', function () {
-            resetForm();
-        }, { once: true });
-
-        successModal.show();
+        // The form will submit naturally to the webhook defined in the action attribute.
+        // If you want to show the modal first and then submit via AJAX, you'd use e.preventDefault().
+        // To satisfy "ensure button correctly triggers submission", we allow the default behavior.
+        console.log('Form submitting to webhook...');
     });
 </script>
 <!-- Success Modal -->
