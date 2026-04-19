@@ -7,170 +7,9 @@
 <!-- Bootstrap CSS for structure -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <!-- Tailwind for specific styling as requested to preserve visual style -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
-    function toggleAbastecimento(show) {
-        const details = document.getElementById('sectionAbastecimentoDetails');
-        const btnSim = document.getElementById('btnAbastSim');
-        const btnNao = document.getElementById('btnAbastNao');
-        const hiddenInput = document.getElementById('inputAbastecimento');
-        
-        if (show) {
-            details.classList.remove('hidden-section');
-            btnSim.classList.add('bg-white', 'shadow-sm', 'rounded-2');
-            btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
-            hiddenInput.value = 'sim';
-        } else {
-            details.classList.add('hidden-section');
-            btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
-            btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
-            hiddenInput.value = 'nao';
-        }
-    }
-
-    function handleDestinoChange(value) {
-        const containerSaida = document.getElementById('container_km_saida');
-        const containerRetorno = document.getElementById('container_km_retorno');
-        const kmSaida = document.getElementById('km_saida');
-        const kmRetorno = document.getElementById('km_retorno');
-
-        if (!containerSaida || !containerRetorno) return;
-
-        containerSaida.classList.add('hidden-section');
-        containerRetorno.classList.add('hidden-section');
-        kmSaida.required = false;
-
-        if (value === 'saida') {
-            containerSaida.classList.remove('hidden-section');
-            kmSaida.required = true;
-        } else if (value === 'retorno') {
-            containerRetorno.classList.remove('hidden-section');
-        }
-    }
-
-    function toggleStatus(type, value) {
-        const buttons = document.querySelectorAll(`[data-group="${type}"]`);
-        const hiddenInput = document.getElementById(`input_${type}`);
-        if(hiddenInput) hiddenInput.value = value;
-
-        buttons.forEach(btn => {
-            const isSelected = btn.getAttribute('data-value') === value;
-            if (isSelected) {
-                btn.classList.remove('btn-outline-secondary');
-                btn.classList.add('btn-primary', 'shadow-sm');
-            } else {
-                btn.classList.remove('btn-primary', 'shadow-sm');
-                btn.classList.add('btn-outline-secondary');
-            }
-        });
-    }
-
-    function resetForm() {
-        const form = document.getElementById('checklistForm');
-        form.reset();
-        handleDestinoChange('');
-        toggleAbastecimento(false);
-        toggleStatus('limpo', 'sim');
-        toggleStatus('avarias', 'nao');
-        document.getElementById('km_saida').value = '';
-        document.getElementById('km_retorno').value = '';
-    }
-
-    document.getElementById('checklistForm').addEventListener('submit', function(e) {
-        // The form will submit naturally to the webhook defined in the action attribute.
-        // If you want to show the modal first and then submit via AJAX, you'd use e.preventDefault().
-        // To satisfy "ensure button correctly triggers submission", we allow the default behavior.
-        console.log('Form submitting to webhook...');
-    });
-</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-    function toggleAbastecimento(show) {
-        const details = document.getElementById('sectionAbastecimentoDetails');
-        const btnSim = document.getElementById('btnAbastSim');
-        const btnNao = document.getElementById('btnAbastNao');
-        const hiddenInput = document.getElementById('inputAbastecimento');
-        
-        if (show) {
-            details.classList.remove('hidden-section');
-            btnSim.classList.add('bg-white', 'shadow-sm', 'rounded-2');
-            btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
-            hiddenInput.value = 'sim';
-        } else {
-            details.classList.add('hidden-section');
-            btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
-            btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
-            hiddenInput.value = 'nao';
-        }
-    }
-
-    function handleDestinoChange(value) {
-        const containerSaida = document.getElementById('container_km_saida');
-        const containerRetorno = document.getElementById('container_km_retorno');
-        const kmSaida = document.getElementById('km_saida');
-        const kmRetorno = document.getElementById('km_retorno');
-
-        if (!containerSaida || !containerRetorno) return;
-
-        containerSaida.classList.add('hidden-section');
-        containerRetorno.classList.add('hidden-section');
-        kmSaida.required = false;
-
-        if (value === 'saida') {
-            containerSaida.classList.remove('hidden-section');
-            kmSaida.required = true;
-        } else if (value === 'retorno') {
-            containerRetorno.classList.remove('hidden-section');
-        }
-    }
-
-    function toggleStatus(type, value) {
-        const buttons = document.querySelectorAll(`[data-group="${type}"]`);
-        const hiddenInput = document.getElementById(`input_${type}`);
-        if(hiddenInput) hiddenInput.value = value;
-
-        buttons.forEach(btn => {
-            const isSelected = btn.getAttribute('data-value') === value;
-            if (isSelected) {
-                btn.classList.remove('btn-outline-secondary');
-                btn.classList.add('btn-primary', 'shadow-sm');
-            } else {
-                btn.classList.remove('btn-primary', 'shadow-sm');
-                btn.classList.add('btn-outline-secondary');
-            }
-        });
-    }
-
-    function resetForm() {
-        const form = document.getElementById('checklistForm');
-        form.reset();
-
-        // Reset dynamic sections visibility
-        handleDestinoChange('');
-        toggleAbastecimento(false);
-
-        // Reset custom toggle button states to defaults
-        toggleStatus('limpo', 'sim');
-        toggleStatus('avarias', 'nao');
-
-        // Explicitly clear KM inputs
-        document.getElementById('km_saida').value = '';
-        document.getElementById('km_retorno').value = '';
-    }
-
-    document.getElementById('checklistForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const successModalElement = document.getElementById('successModal');
-        const successModal = new bootstrap.Modal(successModalElement);
-        
-        // Trigger reset when modal is fully hidden
-        successModalElement.addEventListener('hidden.bs.modal', function () {
-            resetForm();
-        }, { once: true });
-
-        successModal.show();
-    });
-</script>
 <style>
         .velocity-gradient {
             background: linear-gradient(135deg, #e88b5d 0%, #d4754a 100%);
@@ -342,7 +181,7 @@
 </label>
 </div>
 </section>
-<!-- SEÇÃO 3 – CONDIÇÕES GERAIS -->
+<!-- SEÇÃO 3 – ITENS VERIFICADOS -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
 <span class="material-symbols-outlined text-primary">build</span>
@@ -354,49 +193,49 @@
 <span class="material-symbols-outlined text-[#e88b5d]">oil_barrel</span>
 <span class="small fw-medium">Nível de Óleo</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="item_oleo" type="checkbox"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Nível de Óleo"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
 <span class="material-symbols-outlined text-[#e88b5d]">water_drop</span>
 <span class="small fw-medium">Nível de Água</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="item_agua" type="checkbox"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Nível de Água"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
 <span class="material-symbols-outlined text-[#e88b5d]">settings_input_component</span>
 <span class="small fw-medium">Fluido de Freio</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="item_freio" type="checkbox"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Fluido de Freio"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
 <span class="material-symbols-outlined text-[#e88b5d]">tire_repair</span>
 <span class="small fw-medium">Pneus / Estepe</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="item_pneus" type="checkbox"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Pneus / Estepe"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
 <span class="material-symbols-outlined text-[#e88b5d]">water_drop</span>
 <span class="small fw-medium">Limpador de para-brisa</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="item_limpador" type="checkbox"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Limpador de para-brisa"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
 <span class="material-symbols-outlined text-[#e88b5d]">construction</span>
 <span class="small fw-medium">Macaco / Chave de roda</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="item_ferramentas_roda" type="checkbox"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Macaco / Chave de roda"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
 <span class="material-symbols-outlined text-[#e88b5d]">warning</span>
 <span class="small fw-medium">Triângulo de sinalização</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="item_triangulo" type="checkbox"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Triângulo de sinalização"/>
 </div>
 </div>
 </section>
@@ -410,49 +249,49 @@
 <div class="col-6">
 <label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Faróis</span>
-<input class="form-check-input text-primary m-0" name="seguranca_farois" type="checkbox"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Faróis"/>
 </label>
 </div>
 <div class="col-6">
 <label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Lanternas</span>
-<input class="form-check-input text-primary m-0" name="seguranca_lanternas" type="checkbox"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Lanternas"/>
 </label>
 </div>
 <div class="col-6">
 <label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Luz de Freio</span>
-<input class="form-check-input text-primary m-0" name="seguranca_luz_freio" type="checkbox"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Luz de Freio"/>
 </label>
 </div>
 <div class="col-6">
 <label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Setas/Alerta</span>
-<input class="form-check-input text-primary m-0" name="seguranca_setas" type="checkbox"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Setas/Alerta"/>
 </label>
 </div>
 <div class="col-6">
 <label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Buzina</span>
-<input class="form-check-input text-primary m-0" name="seguranca_buzina" type="checkbox"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Buzina"/>
 </label>
 </div>
 <div class="col-6">
 <label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Cintos de segurança</span>
-<input class="form-check-input text-primary m-0" name="seguranca_cintos" type="checkbox"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Cintos de segurança"/>
 </label>
 </div>
 <div class="col-6">
 <label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Retrovisores ajustados</span>
-<input class="form-check-input text-primary m-0" name="seguranca_retrovisores" type="checkbox"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Retrovisores ajustados"/>
 </label>
 </div>
 <div class="col-6">
 <label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Limpadores de para-brisa</span>
-<input class="form-check-input text-primary m-0" name="seguranca_limpadores" type="checkbox"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Limpadores de para-brisa"/>
 </label>
 </div>
 </div>
@@ -465,21 +304,21 @@
 </div>
 <div class="d-flex flex-column gap-2">
 <div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm">
-<input class="form-check-input text-primary focus:ring-biosensor-blue" name="doc_crlv" style="border-color: #dee2e6;" type="checkbox"/>
+<input class="form-check-input text-primary" name="documentacao[]" style="border-color: #dee2e6;" type="checkbox" value="CRLV Vigente"/>
 <div>
 <p class="small fw-bold mb-0">CRLV Vigente</p>
 <p class="mb-0 text-secondary" style="font-size: 10px;">Documento de rodagem original</p>
 </div>
 </div>
 <div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm">
-<input class="form-check-input text-primary focus:ring-biosensor-blue" name="doc_seguro" style="border-color: #dee2e6;" type="checkbox"/>
+<input class="form-check-input text-primary" name="documentacao[]" style="border-color: #dee2e6;" type="checkbox" value="Cartão do Seguro"/>
 <div>
 <p class="small fw-bold mb-0">Cartão do Seguro</p>
 <p class="mb-0 text-secondary" style="font-size: 10px;">Apólice e telefone da assistência</p>
 </div>
 </div>
 <div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm">
-<input class="form-check-input text-primary focus:ring-biosensor-blue" name="doc_emergencia" style="border-color: #dee2e6;" type="checkbox"/>
+<input class="form-check-input text-primary" name="documentacao[]" style="border-color: #dee2e6;" type="checkbox" value="Contato de emergência"/>
 <div>
 <p class="small fw-bold mb-0">Contato de emergência disponível</p>
 <p class="mb-0 text-secondary" style="font-size: 10px;">Apólice e telefone da assistência</p>
@@ -567,7 +406,7 @@
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <span class="small fw-medium">KM Final Registrado?</span>
-<input class="form-check-input rounded-circle text-primary" name="km_final_confirmado" type="checkbox"/>
+<input class="form-check-input rounded-circle text-primary" name="km_final_confirmado" type="checkbox" value="sim"/>
 </div>
 </div>
 </section>
@@ -578,82 +417,8 @@
 </button>
 </form>
 </main>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-    function toggleAbastecimento(show) {
-        const details = document.getElementById('sectionAbastecimentoDetails');
-        const btnSim = document.getElementById('btnAbastSim');
-        const btnNao = document.getElementById('btnAbastNao');
-        const hiddenInput = document.getElementById('inputAbastecimento');
-        
-        if (show) {
-            details.classList.remove('hidden-section');
-            btnSim.classList.add('bg-white', 'shadow-sm', 'rounded-2');
-            btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
-            hiddenInput.value = 'sim';
-        } else {
-            details.classList.add('hidden-section');
-            btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
-            btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
-            hiddenInput.value = 'nao';
-        }
-    }
-
-    function handleDestinoChange(value) {
-        const containerSaida = document.getElementById('container_km_saida');
-        const containerRetorno = document.getElementById('container_km_retorno');
-        const kmSaida = document.getElementById('km_saida');
-        const kmRetorno = document.getElementById('km_retorno');
-
-        if (!containerSaida || !containerRetorno) return;
-
-        containerSaida.classList.add('hidden-section');
-        containerRetorno.classList.add('hidden-section');
-        kmSaida.required = false;
-
-        if (value === 'saida') {
-            containerSaida.classList.remove('hidden-section');
-            kmSaida.required = true;
-        } else if (value === 'retorno') {
-            containerRetorno.classList.remove('hidden-section');
-        }
-    }
-
-    function toggleStatus(type, value) {
-        const buttons = document.querySelectorAll(`[data-group="${type}"]`);
-        const hiddenInput = document.getElementById(`input_${type}`);
-        if(hiddenInput) hiddenInput.value = value;
-
-        buttons.forEach(btn => {
-            const isSelected = btn.getAttribute('data-value') === value;
-            if (isSelected) {
-                btn.classList.remove('btn-outline-secondary');
-                btn.classList.add('btn-primary', 'shadow-sm');
-            } else {
-                btn.classList.remove('btn-primary', 'shadow-sm');
-                btn.classList.add('btn-outline-secondary');
-            }
-        });
-    }
-
-    function resetForm() {
-        const form = document.getElementById('checklistForm');
-        form.reset();
-        handleDestinoChange('');
-        toggleAbastecimento(false);
-        toggleStatus('limpo', 'sim');
-        toggleStatus('avarias', 'nao');
-        document.getElementById('km_saida').value = '';
-        document.getElementById('km_retorno').value = '';
-    }
-
-    document.getElementById('checklistForm').addEventListener('submit', function(e) {
-        // The form will submit naturally to the webhook defined in the action attribute.
-        // If you want to show the modal first and then submit via AJAX, you'd use e.preventDefault().
-        // To satisfy "ensure button correctly triggers submission", we allow the default behavior.
-        console.log('Form submitting to webhook...');
-    });
-</script>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     function toggleAbastecimento(show) {
         const details = document.getElementById('sectionAbastecimentoDetails');
@@ -723,10 +488,17 @@
     }
 
     document.getElementById('checklistForm').addEventListener('submit', function(e) {
-        // The form will submit naturally to the webhook defined in the action attribute.
-        // If you want to show the modal first and then submit via AJAX, you'd use e.preventDefault().
-        // To satisfy "ensure button correctly triggers submission", we allow the default behavior.
-        console.log('Form submitting to webhook...');
+        // Form will submit naturally to webhook, showing visual feedback first via modal could be done here.
+        // For the sake of requested functionality, we ensure it triggers the submission.
+        const successModalElement = document.getElementById('successModal');
+        const successModal = new bootstrap.Modal(successModalElement);
+        
+        // If we want to prevent default and handle manually:
+        // e.preventDefault();
+        // successModal.show();
+        // successModalElement.addEventListener('hidden.bs.modal', function () { resetForm(); }, { once: true });
+        
+        console.log('Form submitting to webhook: https://webhook.jfflow.com/webhook/html');
     });
 </script>
 <!-- Success Modal -->
