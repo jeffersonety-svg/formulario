@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checklist de Veículo - Frota</title>
+<!-- Bootstrap CSS for structure -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Tailwind for specific styling as requested to preserve visual style -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#cfe6f2",
+                        "on-surface": "#071e27",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#004e5d",
+                        "secondary-container": "#fd644f",
+                        "surface": "#f3faff",
+                        "on-primary-fixed-variant": "#93000d",
+                        "surface-bright": "#f3faff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#c7dde9",
+                        "on-surface-variant": "#5b403d",
+                        "on-secondary-fixed-variant": "#8e120a",
+                        "tertiary-fixed": "#afecff",
+                        "surface-container": "#dbf1fe",
+                        "on-primary-fixed": "#410002",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#db322f",
+                        "on-tertiary-container": "#f9fdff",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb4ac",
+                        "surface-container-high": "#d5ecf8",
+                        "primary-fixed": "#ffdad6",
+                        "outline": "#906f6c",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#410000",
+                        "surface-tint": "#bb171c",
+                        "tertiary-fixed-dim": "#72d4ef",
+                        "inverse-on-surface": "#dff4ff",
+                        "on-primary-container": "#fffbff",
+                        "primary": "#b7131a",
+                        "outline-variant": "#e4beb9",
+                        "on-secondary-container": "#650000",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#006578",
+                        "on-background": "#071e27",
+                        "surface-variant": "#cfe6f2",
+                        "secondary": "#b02d1f",
+                        "inverse-surface": "#1e333c",
+                        "tertiary-container": "#008097",
+                        "inverse-primary": "#ffb4ac",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffdad4",
+                        "background": "#f3faff",
+                        "surface-container-low": "#e6f6ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .velocity-gradient {
+            background: linear-gradient(135deg, #b7131a 0%, #8e120a 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        .conditional-section {
+            transition: all 0.3s ease-in-out;
+        }
+        .hidden-section {
+            display: none;
+            opacity: 0;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #f3faff !important;
+        }
+        /* Bootstrap overrides to match design */
+        .container {
+            max-width: 512px;
+        }
+        .form-select, .form-control {
+            border: none;
+            padding: 0;
+            background-color: transparent;
+        }
+        .form-select:focus, .form-control:focus {
+            background-color: transparent;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#f3faff] fixed-top z-50 border-bottom border-[#e6f6ff]">
+<div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-[#b7131a]">menu</span>
+<h1 class="h6 mb-0 fw-bold tracking-tight text-[#071e27]">Checklist de Veículo</h1>
+</div>
+<div class="rounded-circle overflow-hidden border border-2 border-surface-container-highest" style="width: 40px; height: 40px;">
+<img alt="Profile" class="w-100 h-100 object-fit-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDRYNSOypraBb1YjvHnXf9aIpfKhFeeaSat6DDY164r1tjcVL0QhP7Dsevm0JOinJq4gvO3RXoyXsXRe1q44Qrm57DrIB4go99mEP0sMBX9un-mRjVLpI07MeL-MC4VwbnUidkZCBQQDUXPu75HI6qVwshGSDcngH-phETsPWmFgsNHXmvz3doYQHwhJySSehHzwpsRy12l8cXZWID28DrlRYHBDXXcY_C0M3cT5l9gLHWYqU5uR_kuMkCOq9Hrawz6isovqWQbk0"/>
+</div>
+</div>
+</header>
+<main class="container pt-5 mt-5 px-3">
+<!-- Hero Graphic -->
+<div class="position-relative mb-4 rounded-4 overflow-hidden shadow-sm" style="height: 192px;">
+<img alt="Fleet Vehicle" class="w-100 h-100 object-fit-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCOUQCuRfYYDIRMTD0mkOsuIm2HhxaO4mYtyRmluP4ee_YwQ-yfLTtolqcMlHXX14Z7zZU8VfStN-HFjQ4V_ClbFMKUqK_zACggn8NeL0n9X1H-0uqyNDFljm6pRAx-me6SAHTsZZ1x2j7-SOqWb518pntYlgrTCAcMk0tERR4_N2Oq1rjTffVCI-ChOIr-ViFNoc7K_tHh9Nwq5AQpqBZtriCn2WILlc1ZTdtGK5J2ddxqzQrlB_1icYdlAioGZOgEOcUL7xB5Ls"/>
+<div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient" style="background: linear-gradient(to top, rgba(7,30,39,0.7), transparent);"></div>
+<div class="position-absolute bottom-0 start-0 p-4">
+<span class="badge rounded-pill bg-info text-dark text-uppercase mb-1" style="font-size: 10px; letter-spacing: 0.1em;">Status: Em Inspeção</span>
+<h2 class="text-white fw-bolder h4 mb-0">Uso Externo - Frota</h2>
+</div>
+</div>
+<form action="https://n8n.jfflow.com/webhook-test/html" class="pb-5" id="checklistForm" method="POST">
+<!-- SEÇÃO 1 – IDENTIFICAÇÃO -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">badge</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 1 – IDENTIFICAÇÃO</h3>
+</div>
+<div class="row g-3">
+<div class="col-12">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Data *</label>
+<input class="form-control" name="data_inspecao" required="" type="date"/>
+</div>
+</div>
+<div class="col-12">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Nome *</label>
+<select class="form-select" name="condutor_nome" required="">
+<option disabled="" selected="" value="">Selecione o Condutor</option>
+<option>João Silva</option>
+<option>Maria Oliveira</option>
+<option>Carlos Souza</option>
+</select>
+</div>
+</div>
+<div class="col-6">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Setor</label>
+<select class="form-select" name="setor">
+<option disabled="" selected="" value="">Selecione o Setor</option>
+<option>Logística</option>
+<option>Manutenção</option>
+<option>Vendas</option>
+<option>Administrativo</option>
+</select>
+</div>
+</div>
+<div class="col-6">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Veículo *</label>
+<select class="form-select" name="veiculo_id" required="">
+<option disabled="" selected="" value="">Selecione o Veículo</option>
+<option>Fiat Fiorino - ABC-1234</option>
+<option>VW Gol - XYZ-5678</option>
+<option>Ford Ranger - KJH-9012</option>
+</select>
+</div>
+</div>
+<div class="col-12">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Destino *</label>
+<select class="form-select" id="destinoSelect" name="destino_tipo" onchange="handleDestinoChange(this.value)" required="">
+<option disabled="" selected="" value="">Selecione o Destino</option>
+<option value="saida">Saída</option>
+<option value="retorno">Retorno</option>
+</select>
+</div>
+</div>
+<div class="col-6 hidden-section" id="container_km_saida">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">KM de Saída *</label>
+<input class="form-control font-monospace" id="km_saida" name="km_saida" placeholder="00000" type="number"/>
+</div>
+</div>
+<div class="col-6 hidden-section" id="container_km_retorno">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">KM de Retorno</label>
+<input class="form-control font-monospace" id="km_retorno" name="km_retorno" placeholder="00000" type="number"/>
+</div>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 2 – NÍVEL DE COMBUSTÍVEL -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">local_gas_station</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 2 – NÍVEL DE COMBUSTÍVEL</h3>
+</div>
+<div class="d-flex flex-column gap-2">
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">Reserva</span>
+<input class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="reserva"/>
+</label>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">1/4</span>
+<input class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="1/4"/>
+</label>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">1/2</span>
+<input checked="" class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="1/2"/>
+</label>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">3/4</span>
+<input class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="3/4"/>
+</label>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">Tanque cheio</span>
+<input class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="full"/>
+</label>
+</div>
+</section>
+<!-- SEÇÃO 3 – CONDIÇÕES GERAIS -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">build</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 3 – CONDIÇÕES GERAIS</h3>
+</div>
+<div class="d-flex flex-column gap-2">
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-info">oil_barrel</span>
+<span class="small fw-medium">Nível de Óleo</span>
+</div>
+<input class="form-check-input rounded-circle text-primary" name="item_oleo" type="checkbox"/>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-info">water_drop</span>
+<span class="small fw-medium">Nível de Água</span>
+</div>
+<input class="form-check-input rounded-circle text-primary" name="item_agua" type="checkbox"/>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-info">fluid_balance</span>
+<span class="small fw-medium">Fluido de Freio</span>
+</div>
+<input class="form-check-input rounded-circle text-primary" name="item_freio" type="checkbox"/>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-info">tire_repair</span>
+<span class="small fw-medium">Pneus / Estepe</span>
+</div>
+<input class="form-check-input rounded-circle text-primary" name="item_pneus" type="checkbox"/>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-info">hardware</span>
+<span class="small fw-medium">Macaco / Chave / Triângulo</span>
+</div>
+<input class="form-check-input rounded-circle text-primary" name="item_ferramentas" type="checkbox"/>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 4 – ITENS DE SEGURANÇA -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">security</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 4 – ITENS DE SEGURANÇA</h3>
+</div>
+<div class="row g-2">
+<div class="col-6">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
+<span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Faróis</span>
+<input class="form-check-input text-danger m-0" name="seguranca_farois" type="checkbox"/>
+</label>
+</div>
+<div class="col-6">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
+<span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Lanternas</span>
+<input class="form-check-input text-danger m-0" name="seguranca_lanternas" type="checkbox"/>
+</label>
+</div>
+<div class="col-6">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
+<span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Luz de Freio</span>
+<input class="form-check-input text-danger m-0" name="seguranca_luz_freio" type="checkbox"/>
+</label>
+</div>
+<div class="col-6">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
+<span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Setas/Alerta</span>
+<input class="form-check-input text-danger m-0" name="seguranca_setas" type="checkbox"/>
+</label>
+</div>
+<div class="col-6">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
+<span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Buzina</span>
+<input class="form-check-input text-danger m-0" name="seguranca_buzina" type="checkbox"/>
+</label>
+</div>
+<div class="col-6">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
+<span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Cintos</span>
+<input class="form-check-input text-danger m-0" name="seguranca_cintos" type="checkbox"/>
+</label>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 5 – DOCUMENTAÇÃO -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">description</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 5 – DOCUMENTAÇÃO</h3>
+</div>
+<div class="d-flex flex-column gap-2">
+<div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm border-start border-4 border-primary">
+<input class="form-check-input text-primary" name="doc_crlv" type="checkbox"/>
+<div>
+<p class="small fw-bold mb-0">CRLV Vigente</p>
+<p class="mb-0 text-secondary" style="font-size: 10px;">Documento de rodagem original</p>
+</div>
+</div>
+<div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm border-start border-4 border-primary">
+<input class="form-check-input text-primary" name="doc_seguro" type="checkbox"/>
+<div>
+<p class="small fw-bold mb-0">Cartão do Seguro</p>
+<p class="mb-0 text-secondary" style="font-size: 10px;">Apólice e telefone da assistência</p>
+</div>
+</div>
+<div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm border-start border-4 border-primary">
+<input class="form-check-input text-primary" name="doc_emergencia" type="checkbox"/>
+<div>
+<p class="small fw-bold mb-0">Contato de emergência disponível</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 6 – ABASTECIMENTO -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">ev_station</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 6 – ABASTECIMENTO</h3>
+</div>
+<div class="d-flex bg-surface-container p-1 rounded-3">
+<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-transparent" id="btnAbastSim" onclick="toggleAbastecimento(true)" type="button">Sim</button>
+<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-white shadow-sm rounded-2" id="btnAbastNao" onclick="toggleAbastecimento(false)" type="button">Não</button>
+<input id="inputAbastecimento" name="abastecimento_realizado" type="hidden" value="nao"/>
+</div>
+<!-- SEÇÃO 6.1 - CONDITIONAL -->
+<div class="hidden-section pt-3 border-start border-2 border-primary ps-3 ms-2" id="sectionAbastecimentoDetails">
+<div class="row g-2">
+<div class="col-6">
+<div class="bg-white p-2 rounded shadow-sm">
+<label class="d-block fw-black text-secondary text-uppercase mb-0" style="font-size: 9px;">Litros</label>
+<input class="form-control form-control-sm" name="abastecimento_litros" step="0.01" type="number"/>
+</div>
+</div>
+<div class="col-6">
+<div class="bg-white p-2 rounded shadow-sm">
+<label class="d-block fw-black text-secondary text-uppercase mb-0" style="font-size: 9px;">Tipo</label>
+<select class="form-select form-select-sm" name="abastecimento_combustivel_tipo">
+<option>Gasolina</option>
+<option>Etanol</option>
+<option>Flex</option>
+<option>Diesel</option>
+</select>
+</div>
+</div>
+<div class="col-6">
+<div class="bg-white p-2 rounded shadow-sm">
+<label class="d-block fw-black text-secondary text-uppercase mb-0" style="font-size: 9px;">Valor (R$)</label>
+<input class="form-control form-control-sm" name="abastecimento_valor" step="0.01" type="number"/>
+</div>
+</div>
+<div class="col-12">
+<div class="bg-white p-2 rounded shadow-sm">
+<label class="d-block fw-black text-secondary text-uppercase mb-0" style="font-size: 9px;">Nome do Posto</label>
+<input class="form-control form-control-sm" name="abastecimento_posto" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 7 – OCORRÊNCIAS -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">report_problem</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 7 – OCORRÊNCIAS</h3>
+</div>
+<div class="bg-white p-3 rounded shadow-sm">
+<textarea class="form-control small text-on-surface border-0 p-0" name="ocorrencias_descricao" placeholder="Descreva qualquer anomalia, ruído ou dano observado no veículo durante o uso..." rows="3"></textarea>
+</div>
+</section>
+<!-- SEÇÃO 8 – RETORNO -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">assignment_turned_in</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 8 – RETORNO DO VEÍCULO</h3>
+</div>
+<div class="d-flex flex-column gap-2">
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<span class="small fw-medium">Veículo Limpo?</span>
+<div class="d-flex gap-2">
+<button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold text-uppercase" data-group="limpo" data-value="nao" onclick="toggleStatus('limpo', 'nao')" style="font-size: 10px;" type="button">Não</button>
+<button class="btn btn-primary btn-sm rounded-pill px-3 fw-bold text-uppercase shadow-sm" data-group="limpo" data-value="sim" onclick="toggleStatus('limpo', 'sim')" style="font-size: 10px;" type="button">Sim</button>
+<input id="input_limpo" name="status_limpeza" type="hidden" value="sim"/>
+</div>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<span class="small fw-medium">Novas Avarias?</span>
+<div class="d-flex gap-2">
+<button class="btn btn-primary btn-sm rounded-pill px-3 fw-bold text-uppercase shadow-sm" data-group="avarias" data-value="nao" onclick="toggleStatus('avarias', 'nao')" style="font-size: 10px;" type="button">Não</button>
+<button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold text-uppercase" data-group="avarias" data-value="sim" onclick="toggleStatus('avarias', 'sim')" style="font-size: 10px;" type="button">Sim</button>
+<input id="input_avarias" name="status_avarias" type="hidden" value="nao"/>
+</div>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<span class="small fw-medium">KM Final Registrado?</span>
+<input class="form-check-input rounded-circle text-primary" name="km_final_confirmado" type="checkbox"/>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<button class="velocity-gradient w-100 py-4 rounded-4 border-0 text-white fw-bolder text-uppercase shadow-lg d-flex align-items-center justify-content-center gap-3 active-opacity-80" style="font-size: 18px; letter-spacing: 0.1em;" type="submit">
+<span>Enviar Checklist</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-[#f3faff] fixed-bottom border-top border-[#e4beb9]/20 shadow-lg z-50 d-md-none">
+<div class="container-fluid d-flex justify-content-around py-2">
+<div class="d-flex flex-column align-items-center text-[#b7131a] bg-[#cfe6f2]/50 rounded-3 py-1 px-3">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="fw-semibold text-uppercase tracking-widest" style="font-size: 11px;">Início</span>
+</div>
+<div class="d-flex flex-column align-items-center text-[#5b403d] py-1 px-3">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="fw-semibold text-uppercase tracking-widest" style="font-size: 11px;">Frota</span>
+</div>
+<div class="d-flex flex-column align-items-center text-[#5b403d] py-1 px-3">
+<span class="material-symbols-outlined">history</span>
+<span class="fw-semibold text-uppercase tracking-widest" style="font-size: 11px;">Histórico</span>
+</div>
+<div class="d-flex flex-column align-items-center text-[#5b403d] py-1 px-3">
+<span class="material-symbols-outlined">person</span>
+<span class="fw-semibold text-uppercase tracking-widest" style="font-size: 11px;">Perfil</span>
+</div>
+</div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function toggleAbastecimento(show) {
+        const details = document.getElementById('sectionAbastecimentoDetails');
+        const btnSim = document.getElementById('btnAbastSim');
+        const btnNao = document.getElementById('btnAbastNao');
+        const hiddenInput = document.getElementById('inputAbastecimento');
+        
+        if (show) {
+            details.classList.remove('hidden-section');
+            btnSim.classList.add('bg-white', 'shadow-sm', 'rounded-2');
+            btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
+            hiddenInput.value = 'sim';
+        } else {
+            details.classList.add('hidden-section');
+            btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
+            btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
+            hiddenInput.value = 'nao';
+        }
+    }
+
+    function handleDestinoChange(value) {
+        const containerSaida = document.getElementById('container_km_saida');
+        const containerRetorno = document.getElementById('container_km_retorno');
+        const kmSaida = document.getElementById('km_saida');
+        const kmRetorno = document.getElementById('km_retorno');
+
+        containerSaida.classList.add('hidden-section');
+        containerRetorno.classList.add('hidden-section');
+        kmSaida.required = false;
+
+        if (value === 'saida') {
+            containerSaida.classList.remove('hidden-section');
+            kmSaida.required = true;
+            kmSaida.focus();
+        } else if (value === 'retorno') {
+            containerRetorno.classList.remove('hidden-section');
+            kmRetorno.focus();
+        }
+    }
+
+    function toggleStatus(type, value) {
+        const buttons = document.querySelectorAll(`[data-group="${type}"]`);
+        const hiddenInput = document.getElementById(`input_${type}`);
+        if(hiddenInput) hiddenInput.value = value;
+
+        buttons.forEach(btn => {
+            const isSelected = btn.getAttribute('data-value') === value;
+            if (isSelected) {
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-primary', 'shadow-sm');
+            } else {
+                btn.classList.remove('btn-primary', 'shadow-sm');
+                btn.classList.add('btn-outline-secondary');
+            }
+        });
+    }
+
+    document.getElementById('checklistForm').addEventListener('submit', function(e) {
+        // Form is naturally sent to the action URL
+        console.log('Form sending...');
+    });
+</script>
+</body></html>
