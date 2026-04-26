@@ -59,6 +59,18 @@
         .bg-info {
             background-color: #e88b5d !important;
         }
+    
+        textarea::placeholder {
+            text-transform: none !important;
+        }
+
+        /* Adjusting bootstrap file input within our style */
+        .custom-file-input {
+            border: 1px solid #dee2e6 !important;
+            padding: 0.5rem !important;
+            background-color: #f8f9fa !important;
+            border-radius: 0.5rem !important;
+        }
     </style>
 </head>
 <body class="font-body text-on-surface" data-mode="connect">
@@ -66,33 +78,33 @@
 <header class="bg-[#f3faff] fixed-top z-50 border-bottom border-[#e6f6ff]">
 <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
 <div class="d-flex align-items-center gap-3">
-<span class="material-symbols-outlined text-[#e88b5d]" style="">directions_car</span>
-<h1 class="h6 mb-0 fw-bold tracking-tight text-[#405663]" style="">Checklist de Veículo</h1>
+<span class="material-symbols-outlined text-[#e88b5d]">directions_car</span>
+<h1 class="h6 mb-0 fw-bold tracking-tight text-[#405663]">Checklist de Veículo</h1>
 </div>
 </div>
 </header>
 <main class="container pt-5 mt-5 px-3">
 <!-- Hero Graphic -->
 <div class="position-relative mb-4 rounded-4 overflow-hidden shadow-sm" style="height: 192px; background-color: white;">
-<img alt="Fleet Vehicle" class="w-100 h-100 object-fit-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ2CYRmfKO0sQXPonUTLh61asr8PWp4QUX4cjCeAy3UMDU7VQYLMvPnE5nzs4KyFGi6VJb33bDqZmjPMQDWpJ-U7hTSL6eETMYruxT1atyJHfN1uCvfXOnclBcLIJdi87gEXIzJssewPTqRSUpNJ5DmMUGnQe7vnCgp4sqjvDSJbGm9gOx-FygpyweQcuZMkNNa__RixhFhLrWAZduypuqRhB80YKZDmghCf2Mv_om9jZXKF-gQJePKDssOkqTKmVHp4E3jDCBGwc" style=""/>
+<img alt="Fleet Vehicle" class="w-100 h-100 object-fit-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ2CYRmfKO0sQXPonUTLh61asr8PWp4QUX4cjCeAy3UMDU7VQYLMvPnE5nzs4KyFGi6VJb33bDqZmjPMQDWpJ-U7hTSL6eETMYruxT1atyJHfN1uCvfXOnclBcLIJdi87gEXIzJssewPTqRSUpNJ5DmMUGnQe7vnCgp4sqjvDSJbGm9gOx-FygpyweQcuZMkNNa__RixhFhLrWAZduypuqRhB80YKZDmghCf2Mv_om9jZXKF-gQJePKDssOkqTKmVHp4E3jDCBGwc"/>
 <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient" style="background: linear-gradient(to top, rgba(64,86,99,0.7), transparent);"></div>
 <div class="position-absolute bottom-0 start-0 p-4">
-<span class="badge rounded-pill bg-info text-white text-uppercase mb-1" style="font-size: 10px; letter-spacing: 0.1em;">Status: Em Inspeção</span>
-<h2 class="text-white fw-bolder h4 mb-0" style="">BioSensor - Frota</h2>
+<span class="badge rounded-pill bg-info text-white text-uppercase mb-1" style="font-size: 12px; letter-spacing: 0.1em; padding: 0.3em 0.72em;">BIOSENSOR</span>
+<h2 class="text-white fw-bolder h4 mb-0">FROTA</h2>
 </div>
 </div>
-<form action="https://webhook.jfflow.com/webhook/html" class="pb-5" id="checklistForm" method="POST">
+<form action="https://webhook.jfflow.com/webhook/html" class="pb-5" enctype="multipart/form-data" id="checklistForm" method="POST">
 <!-- SEÇÃO 1 – IDENTIFICAÇÃO -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
-<span class="material-symbols-outlined text-primary" style="">badge</span>
+<span class="material-symbols-outlined text-primary">badge</span>
 <h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 1 – IDENTIFICAÇÃO</h3>
 </div>
 <div class="row g-3">
 <div class="col-12">
 <div class="bg-white p-3 rounded shadow-sm">
 <label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Data *</label>
-<input class="form-control" name="data_inspecao" required="" type="date"/>
+<input class="form-control" name="data_inspecao" required="" style="text-transform: uppercase;" type="date"/>
 </div>
 </div>
 <div class="col-12">
@@ -100,21 +112,31 @@
 <label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Nome *</label>
 <select class="form-select" name="condutor_nome" required="">
 <option disabled="" selected="" value="">Selecione o Condutor</option>
-<option>Paula Cristina Pereira</option>
-<option>Paulo Cesar Silva</option>
-<option>Nilton Cesar Tonon</option>
+<option>Daniel Oliveira</option>
+<option>Eugenio Almeida</option>
+<option>Fernanda Santiago</option>
+<option>Nilton Tonon</option>
+<option>Paula Cristina</option>
+<option>Paulo Silva</option>
+<option>Paulo Vitorino</option>
+<option>Rafaella de Oliveira</option>
+<option>Tatiane Branquinho</option>
+<option>Thiago da Silva</option>
+<option>Viviane Carral</option>
 </select>
 </div>
 </div>
 <div class="col-6">
 <div class="bg-white p-3 rounded shadow-sm">
-<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Setor</label>
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">departamento<br/></label>
 <select class="form-select" name="setor">
 <option disabled="" selected="" value="">Selecione o Setor</option>
-<option>Logística</option>
+<option>PCP</option>
 <option>Manutenção</option>
 <option>Vendas</option>
 <option>Administrativo</option>
+<option>Serviços Externos</option>
+<option>Eventos</option>
 </select>
 </div>
 </div>
@@ -130,24 +152,35 @@
 </div>
 <div class="col-12">
 <div class="bg-white p-3 rounded shadow-sm">
-<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Destino *</label>
-<select class="form-select" id="destinoSelect" name="destino_tipo" onchange="handleDestinoChange(this.value)" required="">
-<option disabled="" selected="" value="">Selecione o Destino</option>
-<option value="saida">Saída</option>
-<option value="retorno">Retorno</option>
-</select>
+<label class="d-block fw-bold text-secondary text-uppercase mb-2" style="font-size: 11px;">Tipo de Trajeto *</label>
+<div class="d-flex gap-4">
+<label class="d-flex align-items-center gap-2 cursor-pointer">
+<input class="form-check-input text-primary mt-0" name="destino_tipo" onchange="handleDestinoChange(this.value)" required="" type="radio" value="saida"/>
+<span class="small fw-medium">Saída</span>
+</label>
+<label class="d-flex align-items-center gap-2 cursor-pointer">
+<input class="form-check-input text-primary mt-0" name="destino_tipo" onchange="handleDestinoChange(this.value)" required="" type="radio" value="retorno"/>
+<span class="small fw-medium">Retorno</span>
+</label>
+</div>
+</div>
+</div>
+<div class="col-12 hidden-section" id="container_destino_trajeto">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Destino do Trajeto *</label>
+<input class="form-control" id="destino_trajeto" name="destino_trajeto" oninput="this.value = this.value.toUpperCase()" placeholder="cidade ou cliente de destino" type="text"/>
 </div>
 </div>
 <div class="col-6 hidden-section" id="container_km_saida">
 <div class="bg-white p-3 rounded shadow-sm">
 <label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">KM de Saída *</label>
-<input class="form-control font-monospace" id="km_saida" name="km_saida" placeholder="00000" type="number"/>
+<input class="form-control font-monospace" id="km_saida" name="km_saida" placeholder="00000" step="0.01" type="number"/>
 </div>
 </div>
 <div class="col-6 hidden-section" id="container_km_retorno">
 <div class="bg-white p-3 rounded shadow-sm">
-<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">KM de Retorno</label>
-<input class="form-control font-monospace" id="km_retorno" name="km_retorno" placeholder="00000" type="number"/>
+<label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">KM de Retorno *</label>
+<input class="form-control font-monospace" id="km_retorno" name="km_retorno" placeholder="00000" step="0.01" type="number"/>
 </div>
 </div>
 </div>
@@ -155,143 +188,131 @@
 <!-- SEÇÃO 2 – NÍVEL DE COMBUSTÍVEL -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
-<span class="material-symbols-outlined text-primary" style="">local_gas_station</span>
-<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 2 – NÍVEL DE COMBUSTÍVEL</h3>
+<span class="material-symbols-outlined text-primary">local_gas_station</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 2 – NÍVEL DE COMBUSTÍVEL *</h3>
 </div>
 <div class="d-flex flex-column gap-2">
-<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer" style="">
-<span class="small fw-medium" style="">Reserva</span>
-<input class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="reserva"/>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">Reserva</span>
+<input class="form-check-input text-primary" name="nivel_combustivel" required="" type="radio" value="reserva"/>
 </label>
-<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer" style="">
-<span class="small fw-medium" style="">1/4</span>
-<input class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="1/4"/>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">1/4</span>
+<input class="form-check-input text-primary" name="nivel_combustivel" required="" type="radio" value="1/4"/>
 </label>
-<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer" style="">
-<span class="small fw-medium" style="">1/2</span>
-<input checked="" class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="1/2"/>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">1/2</span>
+<input checked="" class="form-check-input text-primary" name="nivel_combustivel" required="" type="radio" value="1/2"/>
 </label>
-<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer" style="">
-<span class="small fw-medium" style="">3/4</span>
-<input class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="3/4"/>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">3/4</span>
+<input class="form-check-input text-primary" name="nivel_combustivel" required="" type="radio" value="3/4"/>
 </label>
-<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer" style="">
-<span class="small fw-medium" style="">Tanque cheio</span>
-<input class="form-check-input text-primary" name="nivel_combustivel" type="radio" value="full"/>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer">
+<span class="small fw-medium">Tanque cheio</span>
+<input class="form-check-input text-primary" name="nivel_combustivel" required="" type="radio" value="full"/>
 </label>
 </div>
 </section>
 <!-- SEÇÃO 3 – ITENS VERIFICADOS -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
-<span class="material-symbols-outlined text-primary" style="">build</span>
-<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 3 – Itens verificados</h3>
+<span class="material-symbols-outlined text-primary">build</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 3 – Itens verificados *</h3>
 </div>
 <div class="d-flex flex-column gap-2">
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
-<span class="material-symbols-outlined text-[#e88b5d]" style="">oil_barrel</span>
-<span class="small fw-medium" style="">Nível de Óleo</span>
+<span class="material-symbols-outlined text-[#e88b5d]">oil_barrel</span>
+<span class="small fw-medium">Nível de Óleo</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Nível de Óleo"/>
-</div>
-<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
-<div class="d-flex align-items-center gap-3">
-<span class="material-symbols-outlined text-[#e88b5d]" style="">water_drop</span>
-<span class="small fw-medium" style="">Nível de Água</span>
-</div>
-<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Nível de Água"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" required="" type="checkbox" value="Nível de Óleo"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
-<span class="material-symbols-outlined text-[#e88b5d]" style="">settings_input_component</span>
-<span class="small fw-medium" style="">Fluido de Freio</span>
+<span class="material-symbols-outlined text-[#e88b5d]">water_drop</span>
+<span class="small fw-medium">Nível de Água</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Fluido de Freio"/>
-</div>
-<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
-<div class="d-flex align-items-center gap-3">
-<span class="material-symbols-outlined text-[#e88b5d]" style="">tire_repair</span>
-<span class="small fw-medium" style="">Pneus / Estepe</span>
-</div>
-<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Pneus / Estepe"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" required="" type="checkbox" value="Nível de Água"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
-<span class="material-symbols-outlined text-[#e88b5d]" style="">water_drop</span>
-<span class="small fw-medium" style="">Limpador de para-brisa</span>
+<span class="material-symbols-outlined text-[#e88b5d]">settings_input_component</span>
+<span class="small fw-medium">Fluído de Freio</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Limpador de para-brisa"/>
-</div>
-<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
-<div class="d-flex align-items-center gap-3">
-<span class="material-symbols-outlined text-[#e88b5d]" style="">construction</span>
-<span class="small fw-medium" style="">Macaco / Chave de roda</span>
-</div>
-<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Macaco / Chave de roda"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" required="" type="checkbox" value="Fluido de Freio"/>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
 <div class="d-flex align-items-center gap-3">
-<span class="material-symbols-outlined text-[#e88b5d]" style="">warning</span>
-<span class="small fw-medium" style="">Triângulo de sinalização</span>
+<span class="material-symbols-outlined text-[#e88b5d]">tire_repair</span>
+<span class="small fw-medium">Pneus / Estepe</span>
 </div>
-<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" type="checkbox" value="Triângulo de sinalização"/>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" required="" type="checkbox" value="Pneus / Estepe"/>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-[#e88b5d]">water_drop</span>
+<span class="small fw-medium">Limpador de pára-brisa</span>
+</div>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" required="" type="checkbox" value="Limpador de para-brisa"/>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-[#e88b5d]">construction</span>
+<span class="small fw-medium">Macaco / Chave de roda</span>
+</div>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" required="" type="checkbox" value="Macaco / Chave de roda"/>
+</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
+<div class="d-flex align-items-center gap-3">
+<span class="material-symbols-outlined text-[#e88b5d]">warning</span>
+<span class="small fw-medium">Triângulo de sinalização</span>
+</div>
+<input class="form-check-input rounded-circle text-primary" name="itens_verificados[]" required="" type="checkbox" value="Triângulo de sinalização"/>
 </div>
 </div>
 </section>
 <!-- SEÇÃO 4 – ITENS DE SEGURANÇA -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
-<span class="material-symbols-outlined text-primary" style="">security</span>
-<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 4 – ITENS DE SEGURANÇA</h3>
+<span class="material-symbols-outlined text-primary">security</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 4 – ITENS DE SEGURANÇA *</h3>
 </div>
 <div class="row g-2">
 <div class="col-6">
-<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm" style="">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Faróis</span>
-<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Faróis"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" required="" type="checkbox" value="Faróis"/>
 </label>
 </div>
 <div class="col-6">
-<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm" style="">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Lanternas</span>
-<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Lanternas"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" required="" type="checkbox" value="Lanternas"/>
 </label>
 </div>
 <div class="col-6">
-<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm" style="">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Luz de Freio</span>
-<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Luz de Freio"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" required="" type="checkbox" value="Luz de Freio"/>
 </label>
 </div>
 <div class="col-6">
-<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm" style="">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Setas/Alerta</span>
-<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Setas/Alerta"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" required="" type="checkbox" value="Setas/Alerta"/>
 </label>
 </div>
 <div class="col-6">
-<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm" style="">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Buzina</span>
-<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Buzina"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" required="" type="checkbox" value="Buzina"/>
 </label>
 </div>
 <div class="col-6">
-<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm" style="">
+<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm">
 <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Cintos de segurança</span>
-<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Cintos de segurança"/>
-</label>
-</div>
-<div class="col-6">
-<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm" style="">
-<span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Retrovisores ajustados</span>
-<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Retrovisores ajustados"/>
-</label>
-</div>
-<div class="col-6">
-<label class="d-flex flex-column gap-2 p-3 bg-white rounded shadow-sm" style="">
-<span class="fw-bold text-secondary text-uppercase" style="font-size: 10px;">Limpadores de para-brisa</span>
-<input class="form-check-input text-primary m-0" name="seguranca[]" type="checkbox" value="Limpadores de para-brisa"/>
+<input class="form-check-input text-primary m-0" name="seguranca[]" required="" type="checkbox" value="Cintos de segurança"/>
 </label>
 </div>
 </div>
@@ -299,28 +320,28 @@
 <!-- SEÇÃO 5 – DOCUMENTAÇÃO -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
-<span class="material-symbols-outlined text-primary" style="">description</span>
-<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 5 – DOCUMENTAÇÃO</h3>
+<span class="material-symbols-outlined text-primary">description</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 5 – DOCUMENTAÇÃO *</h3>
 </div>
 <div class="d-flex flex-column gap-2">
 <div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm">
-<input class="form-check-input text-primary" name="documentacao[]" style="border-color: #dee2e6;" type="checkbox" value="CRLV Vigente"/>
+<input class="form-check-input text-primary" name="documentacao[]" required="" style="border-color: #dee2e6;" type="checkbox" value="CRLV Vigente"/>
 <div>
-<p class="small fw-bold mb-0" style="">CRLV Vigente</p>
+<p class="small fw-bold mb-0">CRLV Vigente</p>
 <p class="mb-0 text-secondary" style="font-size: 10px;">Documento de rodagem original</p>
 </div>
 </div>
 <div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm">
 <input class="form-check-input text-primary" name="documentacao[]" style="border-color: #dee2e6;" type="checkbox" value="Cartão do Seguro"/>
 <div>
-<p class="small fw-bold mb-0" style="">Cartão do Seguro</p>
-<p class="mb-0 text-secondary" style="font-size: 10px;">Apólice e telefone da assistência</p>
+<p class="small fw-bold mb-0">Modem Internet</p>
+<p class="mb-0 text-secondary" style="font-size: 10px;">(Confirmar bateria e crédito disponível)</p>
 </div>
 </div>
 <div class="d-flex align-items-center gap-3 p-3 bg-white rounded shadow-sm">
-<input class="form-check-input text-primary" name="documentacao[]" style="border-color: #dee2e6;" type="checkbox" value="Contato de emergência"/>
+<input class="form-check-input text-primary" name="documentacao[]" required="" style="border-color: #dee2e6;" type="checkbox" value="Contato de emergência"/>
 <div>
-<p class="small fw-bold mb-0" style="">Contato de emergência disponível</p>
+<p class="small fw-bold mb-0">Contato de emergência disponível</p>
 <p class="mb-0 text-secondary" style="font-size: 10px;">Apólice e telefone da assistência</p>
 </div>
 </div>
@@ -329,17 +350,18 @@
 <!-- SEÇÃO 6 – ABASTECIMENTO -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
-<span class="material-symbols-outlined text-primary" style="">ev_station</span>
-<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 6 – houve  ABASTECIMENTO</h3>
+<span class="material-symbols-outlined text-primary">ev_station</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 6 – houve ABASTECIMENTO</h3>
 </div>
 <div class="d-flex bg-surface-container p-1 rounded-3">
-<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-transparent bg-white shadow-sm rounded-2" id="btnAbastSim" onclick="toggleAbastecimento(true)" style="" type="button">Sim</button>
-<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0" id="btnAbastNao" onclick="toggleAbastecimento(false)" style="" type="button">Não</button>
-<input id="inputAbastecimento" name="abastecimento_realizado" type="hidden" value="sim"/>
+<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-transparent" id="btnAbastSim" onclick="toggleAbastecimento(true)" type="button">Sim</button>
+<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-white shadow-sm rounded-2" id="btnAbastNao" onclick="toggleAbastecimento(false)" type="button">Não</button>
+<input id="inputAbastecimento" name="abastecimento_realizado" type="hidden" value="nao"/>
 </div>
 <!-- SEÇÃO 6.1 - CONDITIONAL -->
-<div class="pt-3 ps-3 ms-2" id="sectionAbastecimentoDetails">
-<div class="row g-2"><div class="col-6">
+<div class="pt-3 ps-3 ms-2 hidden-section" id="sectionAbastecimentoDetails">
+<div class="row g-2">
+<div class="col-6">
 <div class="bg-white p-2 rounded shadow-sm">
 <label class="d-block fw-black text-secondary text-uppercase mb-0" style="font-size: 9px;">Litros *</label>
 <input class="form-control form-control-sm" name="abastecimento_litros" required="" step="0.01" type="number"/>
@@ -348,7 +370,7 @@
 <div class="col-6">
 <div class="bg-white p-2 rounded shadow-sm">
 <label class="d-block fw-black text-secondary text-uppercase mb-0" style="font-size: 9px;">KM no Abastecimento *</label>
-<input class="form-control form-control-sm" name="km_abastecimento" required="" type="number"/>
+<input class="form-control form-control-sm" name="km_abastecimento" required="" step="0.01" type="number"/>
 </div>
 </div>
 <div class="col-6">
@@ -371,30 +393,50 @@
 <div class="col-12">
 <div class="bg-white p-2 rounded shadow-sm">
 <label class="d-block fw-black text-secondary text-uppercase mb-0" style="font-size: 9px;">Nome do Posto *</label>
-<input class="form-control form-control-sm" name="abastecimento_posto" required="" type="text"/>
+<input class="form-control form-control-sm" name="abastecimento_posto" required="" style="text-transform: uppercase;" type="text"/>
 </div>
-</div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- SEÇÃO EXTRA – CARTÃO IFOOD -->
+<section class="bg-surface-container-low rounded-4 p-4 mb-4">
+<div class="d-flex align-items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">seção 7 - Cartão iFood *</h3>
+</div>
+<div class="d-flex rounded-3">
+<div class="d-flex flex-row gap-3 w-100">
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer flex-grow-1 mb-0">
+<span class="small fw-medium">Sim</span>
+<input class="form-check-input text-primary mt-0" name="cartao_ifood" required="" type="radio" value="sim"/>
+</label>
+<label class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm cursor-pointer flex-grow-1 mb-0">
+<span class="small fw-medium">Não</span>
+<input class="form-check-input text-primary mt-0" name="cartao_ifood" required="" type="radio" value="nao"/>
+</label>
+</div>
 </div>
 </section>
 <!-- SEÇÃO 7 – OCORRÊNCIAS -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
-<span class="material-symbols-outlined text-primary" style="">report_problem</span>
-<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 7 – OCORRÊNCIAS</h3>
+<span class="material-symbols-outlined text-primary">report_problem</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 8 – OCORRÊNCIAS *</h3>
 </div>
 <div class="bg-white p-3 rounded shadow-sm">
-<textarea class="form-control small text-on-surface border-0 p-0" name="ocorrencias_descricao" placeholder="Descreva qualquer anomalia, ruído ou dano observado no veículo durante o uso..." rows="3"></textarea>
+<textarea class="form-control small text-on-surface border-0 p-0" name="ocorrencias_descricao" placeholder="Descreva qualquer anomalia, ruído ou dano observado no veículo durante o uso..." required="" rows="3" style="text-transform: uppercase;"></textarea>
 </div>
 </section>
 <!-- SEÇÃO 8 – RETORNO -->
 <section class="bg-surface-container-low rounded-4 p-4 mb-4">
 <div class="d-flex align-items-center gap-2 mb-3">
-<span class="material-symbols-outlined text-primary" style="">assignment_turned_in</span>
-<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 8 – RETORNO DO VEÍCULO</h3>
+<span class="material-symbols-outlined text-primary">assignment_turned_in</span>
+<h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 9 – RETORNO DO VEÍCULO</h3>
 </div>
 <div class="d-flex flex-column gap-2">
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
-<span class="small fw-medium" style="">Veículo Limpo?</span>
+<span class="small fw-medium">Veículo Limpo?</span>
 <div class="d-flex gap-2">
 <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold text-uppercase" data-group="limpo" data-value="nao" onclick="toggleStatus('limpo', 'nao')" style="font-size: 10px;" type="button">Não</button>
 <button class="btn btn-primary btn-sm rounded-pill px-3 fw-bold text-uppercase shadow-sm" data-group="limpo" data-value="sim" onclick="toggleStatus('limpo', 'sim')" style="font-size: 10px;" type="button">Sim</button>
@@ -402,25 +444,29 @@
 </div>
 </div>
 <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
-<span class="small fw-medium" style="">Novas Avarias?</span>
+<span class="small fw-medium">Novas Avarias?</span>
 <div class="d-flex gap-2">
-<button class="btn btn-primary btn-sm rounded-pill px-3 fw-bold text-uppercase shadow-sm" data-group="avarias" data-value="nao" onclick="toggleStatus('avarias', 'nao')" style="font-size: 10px;" type="button">Não</button>
-<button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold text-uppercase" data-group="avarias" data-value="sim" onclick="toggleStatus('avarias', 'sim')" style="font-size: 10px;" type="button">Sim</button>
+<button class="btn btn-primary btn-sm rounded-pill px-3 fw-bold text-uppercase shadow-sm" data-group="avarias" data-value="nao" id="btn_avarias_nao" onclick="toggleStatus('avarias', 'nao')" style="font-size: 10px;" type="button">Não</button>
+<button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold text-uppercase" data-group="avarias" data-value="sim" id="btn_avarias_sim" onclick="toggleStatus('avarias', 'sim')" style="font-size: 10px;" type="button">Sim</button>
 <input id="input_avarias" name="status_avarias" type="hidden" value="nao"/>
 </div>
 </div>
-<div class="d-flex justify-content-between align-items-center p-3 bg-white rounded shadow-sm">
-<span class="small fw-medium" style="">KM Final Registrado?</span>
-<input class="form-check-input rounded-circle text-primary" name="km_final_confirmado" type="checkbox" value="sim"/>
+<!-- Updated: New container for Avarias photo capture -->
+<div class="hidden-section mt-2" id="container_foto_avarias">
+<div class="bg-white p-3 rounded shadow-sm">
+<label class="d-block fw-bold text-secondary text-uppercase mb-2" style="font-size: 11px;">Registrar Avaria (Foto) *</label>
+<input accept="image/*" class="form-control custom-file-input" id="foto_avarias" name="foto_avaria_captura" type="file"/>
+</div>
 </div>
 </div>
 </section>
 <!-- Action Button -->
 <div class="d-flex align-items-center justify-content-center gap-2 mb-3 opacity-75">
 <p class="mb-0 text-secondary" style="font-size: 10px; letter-spacing: 0.02em;"><br/></p>
-</div><button class="velocity-gradient w-100 py-4 rounded-4 border-0 text-white fw-bolder text-uppercase shadow-lg d-flex align-items-center justify-content-center gap-3 active-opacity-80" style="font-size: 18px; letter-spacing: 0.1em;" type="submit">
-<span class="" style="">Enviar Checklist</span>
-<span class="material-symbols-outlined" style="">send</span>
+</div>
+<button class="velocity-gradient w-100 py-4 rounded-4 border-0 text-white fw-bolder text-uppercase shadow-lg d-flex align-items-center justify-content-center gap-3 active-opacity-80" style="font-size: 18px; letter-spacing: 0.1em;" type="submit">
+<span>Enviar Checklist</span>
+<span class="material-symbols-outlined">send</span>
 </button>
 </form>
 </main>
@@ -432,37 +478,50 @@
         const btnSim = document.getElementById('btnAbastSim');
         const btnNao = document.getElementById('btnAbastNao');
         const hiddenInput = document.getElementById('inputAbastecimento');
+        const detailFields = details.querySelectorAll('input, select');
         
         if (show) {
             details.classList.remove('hidden-section');
             btnSim.classList.add('bg-white', 'shadow-sm', 'rounded-2');
             btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
             hiddenInput.value = 'sim';
+            detailFields.forEach(field => field.required = true);
         } else {
             details.classList.add('hidden-section');
             btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
             btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
             hiddenInput.value = 'nao';
+            detailFields.forEach(field => field.required = false);
         }
     }
+
+    toggleAbastecimento(false);
 
     function handleDestinoChange(value) {
         const containerSaida = document.getElementById('container_km_saida');
         const containerRetorno = document.getElementById('container_km_retorno');
+        const containerTrajeto = document.getElementById('container_destino_trajeto');
         const kmSaida = document.getElementById('km_saida');
         const kmRetorno = document.getElementById('km_retorno');
+        const destinoTrajeto = document.getElementById('destino_trajeto');
 
-        if (!containerSaida || !containerRetorno) return;
+        if (!containerSaida || !containerRetorno || !containerTrajeto) return;
 
         containerSaida.classList.add('hidden-section');
         containerRetorno.classList.add('hidden-section');
+        containerTrajeto.classList.add('hidden-section');
         kmSaida.required = false;
+        kmRetorno.required = false;
+        destinoTrajeto.required = false;
 
         if (value === 'saida') {
             containerSaida.classList.remove('hidden-section');
+            containerTrajeto.classList.remove('hidden-section');
             kmSaida.required = true;
+            destinoTrajeto.required = true;
         } else if (value === 'retorno') {
             containerRetorno.classList.remove('hidden-section');
+            kmRetorno.required = true;
         }
     }
 
@@ -481,30 +540,24 @@
                 btn.classList.add('btn-outline-secondary');
             }
         });
-    }
 
-    function resetForm() {
-        const form = document.getElementById('checklistForm');
-        form.reset();
-        handleDestinoChange('');
-        toggleAbastecimento(false);
-        toggleStatus('limpo', 'sim');
-        toggleStatus('avarias', 'nao');
-        document.getElementById('km_saida').value = '';
-        document.getElementById('km_retorno').value = '';
+        // Special handling for Avarias section to show/hide photo input
+        if (type === 'avarias') {
+            const photoContainer = document.getElementById('container_foto_avarias');
+            const photoInput = document.getElementById('foto_avarias');
+            if (value === 'sim') {
+                photoContainer.classList.remove('hidden-section');
+                photoInput.required = true;
+            } else {
+                photoContainer.classList.add('hidden-section');
+                photoInput.required = false;
+                photoInput.value = ''; // Clear file selection if hidden
+            }
+        }
     }
 
     document.getElementById('checklistForm').addEventListener('submit', function(e) {
-        // Form will submit naturally to webhook, showing visual feedback first via modal could be done here.
-        // For the sake of requested functionality, we ensure it triggers the submission.
-        const successModalElement = document.getElementById('successModal');
-        const successModal = new bootstrap.Modal(successModalElement);
-        
-        // If we want to prevent default and handle manually:
-        // e.preventDefault();
-        // successModal.show();
-        // successModalElement.addEventListener('hidden.bs.modal', function () { resetForm(); }, { once: true });
-        
+        // Prevent default only for demo purposes if needed, otherwise n8n endpoint handles it
         console.log('Form submitting to webhook: https://webhook.jfflow.com/webhook/html');
     });
 </script>
@@ -516,9 +569,9 @@
 <div class="mb-4 d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 rounded-circle" style="width: 80px; height: 80px;">
 <span class="material-symbols-outlined text-success" style='font-size: 48px; font-variation-settings: "FILL" 1;'>check_circle</span>
 </div>
-<h4 class="fw-bold text-on-surface mb-2" style="">Obrigado!</h4>
-<p class="text-secondary mb-4" style="">Seu checklist foi enviado com sucesso.</p>
-<button class="btn btn-primary w-100 py-3 rounded-pill fw-bold text-uppercase" data-bs-dismiss="modal" style="" type="button">Fechar</button>
+<h4 class="fw-bold text-on-surface mb-2">Obrigado!</h4>
+<p class="text-secondary mb-4">Seu checklist foi enviado com sucesso.</p>
+<button class="btn btn-primary w-100 py-3 rounded-pill fw-bold text-uppercase" data-bs-dismiss="modal" type="button">Fechar</button>
 </div>
 </div>
 </div>
