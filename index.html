@@ -129,7 +129,7 @@
 <div class="col-6">
 <div class="bg-white p-3 rounded shadow-sm">
 <label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">departamento<br/></label>
-<select class="form-select" name="setor">
+<select class="form-select" name="setor" required="">
 <option disabled="" selected="" value="">Selecione o Setor</option>
 <option>Administrativo</option>
 <option>Eventos</option>
@@ -168,7 +168,7 @@
 <div class="col-12 hidden-section" id="container_destino_trajeto">
 <div class="bg-white p-3 rounded shadow-sm">
 <label class="d-block fw-bold text-secondary text-uppercase mb-1" style="font-size: 11px;">Destino do Trajeto *</label>
-<input class="form-control" id="destino_trajeto" name="destino_trajeto" oninput="this.value = this.value.toUpperCase()" placeholder="cidade ou cliente de destino" type="text"/>
+<input class="form-control" id="destino_trajeto" name="destino_trajeto" oninput="this.value = this.value.toUpperCase()" placeholder="Cliente de destino ou Cidade" type="text"/>
 </div>
 </div>
 <div class="col-6 hidden-section" id="container_km_saida">
