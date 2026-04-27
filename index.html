@@ -155,11 +155,11 @@
 <label class="d-block fw-bold text-secondary text-uppercase mb-2" style="font-size: 11px;">Tipo de Trajeto *</label>
 <div class="d-flex gap-4">
 <label class="d-flex align-items-center gap-2 cursor-pointer">
-<input class="form-check-input text-primary mt-0" name="destino_tipo" onchange="handleDestinoChange(this.value)" required="" type="radio" value="saida"/>
+<input class="form-check-input text-primary mt-0" name="destino_tipo" onchange="handleDestinoChange(this.value, true)" required="" type="radio" value="saida"/>
 <span class="small fw-medium">Saída</span>
 </label>
 <label class="d-flex align-items-center gap-2 cursor-pointer">
-<input class="form-check-input text-primary mt-0" name="destino_tipo" onchange="handleDestinoChange(this.value)" required="" type="radio" value="retorno"/>
+<input class="form-check-input text-primary mt-0" name="destino_tipo" onchange="handleDestinoChange(this.value, true)" required="" type="radio" value="retorno"/>
 <span class="small fw-medium">Retorno</span>
 </label>
 </div>
@@ -354,8 +354,8 @@
 <h3 class="small fw-bold text-secondary text-uppercase mb-0" style="letter-spacing: -0.025em;">SEÇÃO 6 – houve ABASTECIMENTO</h3>
 </div>
 <div class="d-flex bg-surface-container p-1 rounded-3">
-<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-transparent" id="btnAbastSim" onclick="toggleAbastecimento(true)" type="button">Sim</button>
-<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-white shadow-sm rounded-2" id="btnAbastNao" onclick="toggleAbastecimento(false)" type="button">Não</button>
+<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-transparent" id="btnAbastSim" onclick="toggleAbastecimento(true, true)" type="button">Sim</button>
+<button class="flex-grow-1 py-2 small fw-bold text-uppercase border-0 bg-white shadow-sm rounded-2" id="btnAbastNao" onclick="toggleAbastecimento(false, true)" type="button">Não</button>
 <input id="inputAbastecimento" name="abastecimento_realizado" type="hidden" value="nao"/>
 </div>
 <!-- SEÇÃO 6.1 - CONDITIONAL -->
@@ -473,12 +473,25 @@
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    function toggleAbastecimento(show) {
+    function focusField(field) {
+        if (!field) return;
+
+        requestAnimationFrame(() => {
+            field.focus();
+            if (typeof field.scrollIntoView === 'function') {
+                field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    }
+
+    function toggleAbastecimento(show, shouldFocus = false) {
         const details = document.getElementById('sectionAbastecimentoDetails');
         const btnSim = document.getElementById('btnAbastSim');
         const btnNao = document.getElementById('btnAbastNao');
         const hiddenInput = document.getElementById('inputAbastecimento');
         const detailFields = details.querySelectorAll('input, select');
+        const firstDetailField = details.querySelector('input, select');
+        const firstIfoodOption = document.querySelector('input[name="cartao_ifood"]');
         
         if (show) {
             details.classList.remove('hidden-section');
@@ -486,18 +499,20 @@
             btnNao.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
             hiddenInput.value = 'sim';
             detailFields.forEach(field => field.required = true);
+            if (shouldFocus) focusField(firstDetailField);
         } else {
             details.classList.add('hidden-section');
             btnNao.classList.add('bg-white', 'shadow-sm', 'rounded-2');
             btnSim.classList.remove('bg-white', 'shadow-sm', 'rounded-2');
             hiddenInput.value = 'nao';
             detailFields.forEach(field => field.required = false);
+            if (shouldFocus) focusField(firstIfoodOption);
         }
     }
 
     toggleAbastecimento(false);
 
-    function handleDestinoChange(value) {
+    function handleDestinoChange(value, shouldFocus = false) {
         const containerSaida = document.getElementById('container_km_saida');
         const containerRetorno = document.getElementById('container_km_retorno');
         const containerTrajeto = document.getElementById('container_destino_trajeto');
@@ -519,9 +534,11 @@
             containerTrajeto.classList.remove('hidden-section');
             kmSaida.required = true;
             destinoTrajeto.required = true;
+            if (shouldFocus) focusField(destinoTrajeto);
         } else if (value === 'retorno') {
             containerRetorno.classList.remove('hidden-section');
             kmRetorno.required = true;
+            if (shouldFocus) focusField(kmRetorno);
         }
     }
 
@@ -548,6 +565,7 @@
             if (value === 'sim') {
                 photoContainer.classList.remove('hidden-section');
                 photoInput.required = true;
+                focusField(photoInput);
             } else {
                 photoContainer.classList.add('hidden-section');
                 photoInput.required = false;
@@ -555,6 +573,54 @@
             }
         }
     }
+
+    const condutorSelect = document.querySelector('select[name="condutor_nome"]');
+    const setorSelect = document.querySelector('select[name="setor"]');
+    const veiculoSelect = document.querySelector('select[name="veiculo_id"]');
+    const primeiroDestinoTipo = document.querySelector('input[name="destino_tipo"]');
+    const primeiroItemVerificado = document.querySelector('input[name="itens_verificados[]"]');
+    const primeiroCartaoIfood = document.querySelector('input[name="cartao_ifood"]');
+    const campoOcorrencias = document.querySelector('textarea[name="ocorrencias_descricao"]');
+    const campoDestinoTrajeto = document.getElementById('destino_trajeto');
+    const campoKmSaida = document.getElementById('km_saida');
+    const campoKmRetorno = document.getElementById('km_retorno');
+    const campoPosto = document.querySelector('input[name="abastecimento_posto"]');
+
+    function bindNextOnEnter(field, nextField) {
+        if (!field || !nextField) return;
+
+        field.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                focusField(nextField);
+            }
+        });
+    }
+
+    if (condutorSelect) {
+        condutorSelect.addEventListener('change', () => focusField(setorSelect));
+    }
+
+    if (setorSelect) {
+        setorSelect.addEventListener('change', () => focusField(veiculoSelect));
+    }
+
+    if (veiculoSelect) {
+        veiculoSelect.addEventListener('change', () => focusField(primeiroDestinoTipo));
+    }
+
+    document.querySelectorAll('input[name="nivel_combustivel"]').forEach(radio => {
+        radio.addEventListener('change', () => focusField(primeiroItemVerificado));
+    });
+
+    document.querySelectorAll('input[name="cartao_ifood"]').forEach(radio => {
+        radio.addEventListener('change', () => focusField(campoOcorrencias));
+    });
+
+    bindNextOnEnter(campoDestinoTrajeto, campoKmSaida);
+    bindNextOnEnter(campoKmSaida, document.querySelector('input[name="nivel_combustivel"]'));
+    bindNextOnEnter(campoKmRetorno, document.querySelector('input[name="nivel_combustivel"]'));
+    bindNextOnEnter(campoPosto, primeiroCartaoIfood);
 
     document.getElementById('checklistForm').addEventListener('submit', function(e) {
         // Prevent default only for demo purposes if needed, otherwise n8n endpoint handles it
