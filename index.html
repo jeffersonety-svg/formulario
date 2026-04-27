@@ -455,7 +455,7 @@
 <div class="hidden-section mt-2" id="container_foto_avarias">
 <div class="bg-white p-3 rounded shadow-sm">
 <label class="d-block fw-bold text-secondary text-uppercase mb-2" style="font-size: 11px;">Registrar Avaria (Foto) *</label>
-<input accept="image/*" class="form-control custom-file-input" id="foto_avarias" name="foto_avaria_captura" type="file"/>
+<input accept="image/*" class="form-control custom-file-input" disabled="" id="foto_avarias" name="foto_avaria_captura" type="file"/>
 </div>
 </div>
 </div>
@@ -542,6 +542,25 @@
         }
     }
 
+    function syncAvariasPhotoField(value, shouldFocus = false) {
+        const photoContainer = document.getElementById('container_foto_avarias');
+        const photoInput = document.getElementById('foto_avarias');
+
+        if (!photoContainer || !photoInput) return;
+
+        if (value === 'sim') {
+            photoContainer.classList.remove('hidden-section');
+            photoInput.required = true;
+            photoInput.disabled = false;
+            if (shouldFocus) focusField(photoInput);
+        } else {
+            photoContainer.classList.add('hidden-section');
+            photoInput.required = false;
+            photoInput.disabled = true;
+            photoInput.value = '';
+        }
+    }
+
     function toggleStatus(type, value) {
         const buttons = document.querySelectorAll(`[data-group="${type}"]`);
         const hiddenInput = document.getElementById(`input_${type}`);
@@ -558,21 +577,12 @@
             }
         });
 
-        // Special handling for Avarias section to show/hide photo input
         if (type === 'avarias') {
-            const photoContainer = document.getElementById('container_foto_avarias');
-            const photoInput = document.getElementById('foto_avarias');
-            if (value === 'sim') {
-                photoContainer.classList.remove('hidden-section');
-                photoInput.required = true;
-                focusField(photoInput);
-            } else {
-                photoContainer.classList.add('hidden-section');
-                photoInput.required = false;
-                photoInput.value = ''; // Clear file selection if hidden
-            }
+            syncAvariasPhotoField(value, true);
         }
     }
+
+    syncAvariasPhotoField(document.getElementById('input_avarias')?.value || 'nao');
 
     const condutorSelect = document.querySelector('select[name="condutor_nome"]');
     const setorSelect = document.querySelector('select[name="setor"]');
