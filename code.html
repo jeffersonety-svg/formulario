@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f6f3f5",
+                      "outline": "#76777d",
+                      "surface-bright": "#fcf8fa",
+                      "on-secondary-container": "#00714d",
+                      "inverse-on-surface": "#f3f0f2",
+                      "on-primary-container": "#7c839b",
+                      "background": "#fcf8fa",
+                      "on-secondary-fixed": "#002113",
+                      "surface-container-high": "#eae7e9",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e4e2e4",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "secondary-fixed": "#6ffbbe",
+                      "surface": "#fcf8fa",
+                      "on-background": "#1b1b1d",
+                      "primary-fixed-dim": "#bec6e0",
+                      "inverse-primary": "#bec6e0",
+                      "on-primary-fixed": "#131b2e",
+                      "surface-container": "#f0edef",
+                      "primary-fixed": "#dae2fd",
+                      "primary": "#000000",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#565e74",
+                      "inverse-surface": "#303032",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "on-surface": "#1b1b1d",
+                      "tertiary-fixed": "#d3e4fe",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "secondary": "#006c49",
+                      "tertiary-container": "#0b1c30",
+                      "on-secondary-fixed-variant": "#005236",
+                      "outline-variant": "#c6c6cd",
+                      "surface-container-highest": "#e4e2e4",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#000000",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-error": "#ffffff",
+                      "primary-container": "#131b2e",
+                      "on-surface-variant": "#45464d",
+                      "secondary-container": "#6cf8bb",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#dcd9db",
+                      "on-tertiary-container": "#75859d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "md": "16px",
+                      "gutter": "24px",
+                      "xl": "40px",
+                      "xxl": "64px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "container-max": "800px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    }catch(_e){}</script></head><body class="bg-surface text-on-surface font-sans antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-md h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm transition-colors">
+<div class="font-headline-md text-headline-md font-bold text-primary"><div><br/></div></div>
+<div class="flex items-center gap-md">
+<button aria-label="Help" class="text-primary hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center active:scale-95 duration-100">
+</button>
+<button aria-label="Account" class="text-primary hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center active:scale-95 duration-100">
+</button>
+</div>
+</header>
+<!-- Progress Bar (Fixed below header) -->
+<div class="fixed top-16 left-0 w-full h-base bg-surface-variant z-40">
+<div class="h-full bg-secondary transition-all duration-500 ease-out" style="width: 0%;"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[104px] pb-xxl px-md md:px-gutter w-full">
+<div class="max-w-container-max mx-auto">
+<!-- Hero Image -->
+<div class="w-full h-48 md:h-72 rounded-2xl overflow-hidden relative mb-xl shadow-sm card-enter">
+<img alt="Condomínio Residencial Villa Di Lucca" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtvCvtSc-t3ualjoevGpsEYsN8Hbk5l9t1uKgduB2-8HO73TNVLF8vw3RS5-LSVq8UEEQDtPLOukDlSisDWAArilqQk2SraaJE96MXMLhpJd4jZKvqltdw3NiGYmFK2QZLNxmQuAmHYV7ZuD09c4d6PgaXIuRO6uFi_YrQ7enDsszeXZ8az4gbN80id1g58iEAVPhuvaSaeNqgmYI_6PgGWKRWHHnwx2_KFXuwAO25PRQoh93ipRtmdhOrDXdPT3Js-KG3GQkrtHs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
+</div>
+<!-- Intro Header Section -->
+<header class="mb-xxl text-center md:text-left card-enter">
+<h1 class="font-headline-lg text-primary mb-lg tracking-tight text-headline-md">Pesquisa de Satisfação do Condomínio Residencial Villa Di Lucca</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant font-medium mb-md max-w-3xl">
+                    Prezado(a) morador(a), Esta pesquisa é anônima e tem como objetivo avaliar a qualidade da gestão e dos serviços prestados em nosso condomínio.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+                    O propósito desta pesquisa é identificar oportunidades de melhoria, buscando aperfeiçoar continuamente o atendimento, a comunicação e os serviços oferecidos. Sua participação é muito importante e suas respostas serão tratadas de forma confidencial.
+                </p>
+</header>
+<form action="#" class="space-y-xl" method="POST">
+<!-- Section 1: Avaliação do Síndico -->
+<section>
+<div class="flex items-center gap-md mb-xl border-b border-outline-variant pb-md card-enter card-delay-1">
+<h2 class="font-headline-md text-headline-md text-primary">1. Avaliação do Síndico</h2>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider ml-auto">Obrigatório</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-lg italic card-enter card-delay-1">
+                        Para cada pergunta, marque apenas uma opção.
+                    </p>
+<div class="space-y-xl">
+<!-- Question 1.1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-1 relative overflow-hidden group">
+<!-- Subtle interaction line -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">1.1</span> Como você avalia a comunicação do síndico com os moradores?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 1.2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-2 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">1.2</span> Como você avalia a transparência nas informações e decisões da administração?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 1.3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-3 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">1.3</span> Como você avalia a agilidade na resolução das solicitações e problemas?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 1.4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-4 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">1.4</span> Como você avalia a disponibilidade do síndico para atender os moradores?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 1.5 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-5 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">1.5</span> De forma geral, como você avalia o trabalho do síndico?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q1_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<section class="mt-xxl">
+<div class="flex items-center gap-md mb-xl border-b border-outline-variant pb-md card-enter card-delay-1">
+<h2 class="font-headline-md text-headline-md text-primary">2. Avaliação da Ajudante do Síndico</h2>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider ml-auto">Obrigatório</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-lg italic card-enter card-delay-1">
+                        Para cada pergunta, marque apenas uma opção.
+                    </p>
+<div class="space-y-xl">
+<!-- Question 2.1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-1 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">2.1</span> Como você avalia a cordialidade no atendimento?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 2.2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-2 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">2.2</span> Como você avalia a agilidade no atendimento das solicitações?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 2.3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-3 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">2.3</span> Como você avalia a clareza das informações prestadas?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 2.4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-4 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full">
+<span class="font-semibold text-primary mr-sm">2.4</span> De forma geral, como você avalia o trabalho da ajudante do síndico?
+                                </legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q2_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+</div>
+</section><!-- Section 3: Avaliação do Zelador -->
+<section class="mt-xxl">
+<div class="flex items-center gap-md mb-xl border-b border-outline-variant pb-md card-enter card-delay-1">
+<h2 class="font-headline-md text-headline-md text-primary">3. Avaliação do Zelador</h2>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider ml-auto">Obrigatório</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-lg italic card-enter card-delay-1">
+        Para cada pergunta, marque apenas uma opção.
+    </p>
+<div class="space-y-xl">
+<!-- Question 3.1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-1 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">3.1</span> Como você avalia a organização e conservação das áreas comuns?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 3.2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-2 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">3.2</span> Como você avalia o comprometimento do zelador com suas atividades?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 3.3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-3 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">3.3</span> Como você avalia a cordialidade no atendimento aos moradores?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 3.4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-4 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">3.4</span> De forma geral, como você avalia o trabalho do zelador?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q3_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+</div>
+</section>
+<!-- Section 4: Avaliação da Limpeza-->
+<section class="mt-xxl">
+<div class="flex items-center gap-md mb-xl border-b border-outline-variant pb-md card-enter card-delay-1">
+<h2 class="font-headline-md text-headline-md text-primary">4. Avaliação da Limpeza</h2>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider ml-auto">Obrigatório</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-lg italic card-enter card-delay-1">
+        Para cada pergunta, marque apenas uma opção.
+    </p>
+<div class="space-y-xl">
+<!-- Question 4.1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-1 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">4.1</span> Como você avalia a limpeza dos halls e corredores?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 4.2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-2 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">4.2</span> Como você avalia a limpeza dos elevadores?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 4.3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-3 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">4.3</span> Como você avalia a limpeza das áreas comuns (salão de festas, churrasqueira, academia, etc.)?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 4.4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-4 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">4.4</span> Como você avalia a limpeza da área externa do condomínio?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 4.5 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-5 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">4.5</span> De forma geral, como você avalia a limpeza do condomínio?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q4_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+</div>
+</section>
+<!-- Section 5: Avaliação da Obra de Pintura -->
+<section class="mt-xxl">
+<div class="flex items-center gap-md mb-xl border-b border-outline-variant pb-md card-enter card-delay-1">
+<h2 class="font-headline-md text-headline-md text-primary">5. Avaliação da Obra de Pintura</h2>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full uppercase tracking-wider ml-auto">Obrigatório</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-lg italic card-enter card-delay-1">
+        Para cada pergunta, marque apenas uma opção.
+    </p>
+<div class="space-y-xl">
+<!-- Question 5.1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-1 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">5.1</span> Como você avalia a qualidade dos serviços realizados até o momento?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_1" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 5.2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-2 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">5.2</span> Como você avalia a organização da empresa durante a execução da obra?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_2" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question-->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-3 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">5.3</span> Como você avalia a limpeza dos locais após a execução dos serviços?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_3" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 5.4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-4 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">5.4</span> Como você avalia a comunicação sobre o andamento da obra?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_4" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+<!-- Question 5.5 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow duration-300 card-enter card-delay-5 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-secondary/20 transition-colors duration-300"></div>
+<fieldset>
+<legend class="font-body-lg text-body-lg text-on-surface mb-md w-full"><span class="font-semibold text-primary mr-sm">5.5</span> De forma geral, como você avalia o andamento da obra de pintura?</legend>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-sm mt-md">
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Excelente</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Bom</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Regular</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Ruim</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Péssimo</div></label>
+<label class="relative cursor-pointer w-full"><input class="peer sr-only" name="q5_5" required="required" type="radio"/><div class="h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container hover:bg-surface-container-highest transition-all duration-200 text-center py-1 px-3">Não avaliar</div></label>
+</div>
+</fieldset>
+</div>
+</div>
+</section>
+<!-- Section 6: Sua opinião -->
+<section class="mt-xxl">
+<div class="flex items-center gap-md mb-xl border-b border-outline-variant pb-md card-enter card-delay-1">
+<h2 class="font-headline-md text-headline-md text-primary">6. Sua opinião</h2>
+</div>
+<div class="space-y-xl">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm card-enter card-delay-1">
+<label class="block font-body-lg text-body-lg text-on-surface mb-md" for="positives">Qual é o principal ponto positivo da administração do condomínio?</label>
+<textarea class="w-full rounded-lg border-outline-variant bg-surface-container-low focus:border-secondary focus:ring-secondary font-body-md text-body-md p-md" id="positives" name="positives" rows="3"></textarea>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm card-enter card-delay-2">
+<label class="block font-body-lg text-body-lg text-on-surface mb-md" for="improvements">O que você acredita que precisa melhorar?</label>
+<textarea class="w-full rounded-lg border-outline-variant bg-surface-container-low focus:border-secondary focus:ring-secondary font-body-md text-body-md p-md" id="improvements" name="improvements" rows="3"></textarea>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm card-enter card-delay-3">
+<label class="block font-body-lg text-body-lg text-on-surface mb-md" for="suggestions">Você tem alguma sugestão para melhorar nosso condomínio?</label>
+<textarea class="w-full rounded-lg border-outline-variant bg-surface-container-low focus:border-secondary focus:ring-secondary font-body-md text-body-md p-md" id="suggestions" name="suggestions" rows="3"></textarea>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm card-enter card-delay-4">
+<label class="block font-body-lg text-body-lg text-on-surface mb-md" for="comments">Gostaria de deixar algum comentário adicional?</label>
+<textarea class="w-full rounded-lg border-outline-variant bg-surface-container-low focus:border-secondary focus:ring-secondary font-body-md text-body-md p-md" id="comments" name="comments" rows="3"></textarea>
+</div>
+</div>
+</section>
+<!-- Final Message -->
+<div class="mt-xl p-lg bg-surface-container-low rounded-xl border border-outline-variant card-enter card-delay-5">
+<p class="font-body-md text-body-md text-on-surface-variant text-center">
+        Agradecemos sua participação! Sua opinião é essencial para que possamos aprimorar continuamente a gestão e os serviços prestados em nosso condomínio.
+    </p>
+</div><div class="mt-xxl flex justify-end card-enter card-delay-5">
+<button class="bg-secondary text-on-secondary font-label-md text-label-md font-semibold py-lg px-xxl rounded-full hover:bg-secondary/90 hover:shadow-md transition-all duration-200 active:scale-95 flex items-center gap-sm" type="submit">
+                        Enviar Respostas
+                        <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</form>
+</div>
+</main>
+<!-- Footer -->
+<!-- Simple script for progress bar logic based on radio selection -->
+<script class="">
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            const progressBar = document.querySelector('.bg-secondary.w-1\\/6'); // initial class is w-1/6 (approx 16%)</script>
+<script>
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                const response = await fetch('https://webhook.jfflow.com/webhook/lucas', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                
+                if (response.ok) {
+                    alert('Respostas enviadas com sucesso!');
+                    e.target.reset();
+                } else {
+                    alert('Erro ao enviar respostas. Tente novamente.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Erro de conexão. Verifique sua internet.');
+            }
+        });
+    </script></body></html>
